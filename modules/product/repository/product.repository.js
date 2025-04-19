@@ -9,6 +9,7 @@ const create = async (data) => {
   }
 };
 
+
 const getAllProducts = async () => {
   try {
     const products = await ProductModel.find({});
