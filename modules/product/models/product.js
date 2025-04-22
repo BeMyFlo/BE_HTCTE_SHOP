@@ -7,15 +7,11 @@ const schema = new Schema(
       type: String,
       required: true,
     },
-    origin: {
-      type: String,
-      required: true,
-    },
     price: {
       type: Number,
       required: true,
     },
-    prevention: {
+    description: {
       type: String,
       required: true,
     },
@@ -28,9 +24,17 @@ const schema = new Schema(
       type: String,
       default: "",
     },
-    link: {
-      type: String,
-      default: "",
+    sales: {
+      type: Number,
+      default: 0,
+    },
+    views: {
+      type: Number,
+      default: 0,
+    },
+    availability: {
+      type: Number,
+      default: 0,
     },
   },
   { timestamps: true }
