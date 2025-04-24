@@ -1,5 +1,8 @@
 import mongoose from 'mongoose';
-import seedDatabase from './seedDatabase.js';
+// import seedDatabase from './seedDatabase.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const useDatabase = async () => {
   try {
