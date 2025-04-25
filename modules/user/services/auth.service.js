@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { UserModel } from "../modules/user/models/user.js";
-import jwtConfig from "../config/jwt.js";  
+import { UserModel } from "../models/user.js";
+import jwtConfig from "../../../config/jwt.js";  
 
 // Đăng ký
 const register = async ({ phone, password, email }) => {
