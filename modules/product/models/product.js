@@ -24,6 +24,10 @@ const schema = new Schema(
       type: String,
       default: "",
     },
+    badge: {
+      type: String,
+      default: "",
+    },
     sales: {
       type: Number,
       default: 0,

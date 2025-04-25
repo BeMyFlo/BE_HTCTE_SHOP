@@ -8,7 +8,8 @@ const router = new Router();
 router.post("/category/create",
     //  upload.single("image"), 
     Category.createCategory);
-// router.get("/category", Category.getListCategory);
+router.get("/category", Category.getListCategory);
+router.get("/category/:category", Category.getListCategoryById);
 // router.route("/product/:category").get(Product.getListProductByCategory);
 
 export default router;

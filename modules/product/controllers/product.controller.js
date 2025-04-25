@@ -45,6 +45,7 @@ export const createProduct = async (req, res) => {
       sales: req.body.sales,
       views: req.body.views,
       availability: req.body.availability,
+      badge: req.body.badge
     };
 
     const newProduct = await ProductRepository.create(product);
