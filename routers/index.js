@@ -1,8 +1,8 @@
-import authRouter from "./auth.router.js";
+import userRouter from "../modules/user/user.routes.js";
 // import productRouter from "../modules/product/product.routes.js";
 
 const useRoutes = (app) => {
-  app.use("/api/auth", authRouter); 
+  app.use("/api/auth", userRouter); 
   // app.use("/api/product", productRouter);
 };
 
