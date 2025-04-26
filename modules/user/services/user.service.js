@@ -4,8 +4,18 @@ import { UserModel } from "../models/user.js";
 import jwtConfig from "../../../config/jwt.js";  
 
 // Đăng ký
+const isValidEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
 const register = async ({ phone, password, email }) => {
-  const existingUser = await UserModel.findOne({ $or: [{ phone }, { email }] });
+  const conditions = [{ phone }];
+
+  if (email && email.trim() !== '') {
+    conditions.push({ email });
+  }  
+
+  const existingUser = await UserModel.findOne({ $or: conditions });
   if (existingUser) {
     throw new Error("Số điện thoại hoặc email đã tồn tại!");
   }
@@ -15,7 +25,7 @@ const register = async ({ phone, password, email }) => {
   const newUser = await UserModel.create({
     phone,
     password: hashedPassword,
-    email, 
+    email: email || undefined, 
   });
 
   return {
@@ -23,10 +33,11 @@ const register = async ({ phone, password, email }) => {
     user: {
       id: newUser._id,
       phone: newUser.phone,
-      email: newUser.email, 
+      email: newUser.email || null, 
     },
   };
 };
+
 
 // Đăng nhập
 const login = async ({ phone, password }) => {
