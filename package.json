@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "NODE_OPTIONS=--openssl-legacy-provider node server.js",
-    "dev": "NODE_OPTIONS=--openssl-legacy-provider nodemon server.js",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider next build",
+    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider nodemon server.js",
+    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider node server.js",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider next build",
     "nodemon": "nodemon server.js"
   },
   "author": "thongha",
@@ -30,6 +30,7 @@
     "multer-storage-cloudinary": "^4.0.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "nodemon": "^3.1.7"
   }
 }
